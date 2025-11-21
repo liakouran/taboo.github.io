@@ -1,7 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: cursive;
+    font-family: cursive,sans serif;
 }
 
 body{
@@ -184,5 +184,6 @@ body{
     background-color: rgb(0, 148, 0);
     box-shadow: 0px 0px 3px rgb(0, 148, 0);
 }
+
 
 
