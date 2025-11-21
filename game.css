@@ -1,0 +1,188 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: cursive;
+}
+
+body{
+    padding: 0px 20px;
+    width: 100%;
+    background-color: rgb(25, 0, 84);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.home{
+    margin-top: 20px;
+    font-size: 35px;
+    font-weight: bold;
+    color: tomato;
+    text-decoration: none;    
+}
+
+.container{
+    width: 80%;
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    column-gap: 2rem;
+}
+
+.container .team1{
+    margin-right: 50px;
+    font-size: 15px;
+    background-color: aliceblue;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px aqua;    
+}
+
+.container .team1 .points{
+    margin-bottom: 10px;
+}
+
+.container .team1 .name{
+    background-color: aqua;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 5px 10px;
+}
+
+.container .team1 .card{
+    padding: 0px 10px 15px 10px;
+}
+
+.container .team1 h2{
+    text-align: center;
+}
+
+.container .main{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container .main h2{
+    color: aliceblue;
+}
+
+.container .main .turn{
+    color: rgb(0, 136, 255);
+    font-size: 18px;
+}
+
+.container .main .card{
+    width: 100%;
+    margin-top: 30px;
+    background-color: aliceblue;
+    border-radius: 15px;
+    padding-bottom: 10px;
+    box-shadow: 0px 0px 5px aliceblue;
+}
+
+.container .main .card .word{
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: tomato;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    box-shadow: 0px 0px 10px tomato;
+}
+
+.container .team2{
+    text-align: right;
+    margin-left: 50px;
+    font-size: 15px;
+    background-color: aliceblue;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px red;  
+}
+
+.container .team2 .points{
+    margin-bottom: 10px;
+}
+
+.container .team2 .name{
+    background-color: red;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 5px 10px;
+}
+
+.container .team2 .card{
+    padding: 0px 10px 15px 10px;
+}
+
+.container .team2 h2{
+    text-align: center;
+}
+
+.buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 25px;
+    margin-top: 30px;
+}
+
+.buttons button{
+    border: none;
+    border-radius: 15px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.buttons .pass{
+    background-color: rgb(203, 185, 16);
+    box-shadow: 0px 0px 3px rgb(203, 185, 16);
+    color: aliceblue;
+}
+
+.buttons .pass:active{
+    background-color: rgb(180, 164, 15);
+    box-shadow: 0px 0px 3px rgb(180, 164, 15);
+
+}
+
+.buttons .start{
+    background-color: rgb(0, 72, 255);
+    box-shadow: 0px 0px 3px rgb(0, 72, 255);
+    color: aliceblue;    
+}
+
+.buttons .start:active{
+    background-color: rgb(0, 58, 205);
+    box-shadow: 0px 0px 3px rgb(0, 58, 205);    
+}
+
+.buttons .taboo{
+    border: none;
+    border-radius: 15px;
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: tomato;
+    box-shadow: 0px 0px 3px tomato;
+    color: aliceblue;
+}
+
+.buttons .taboo:active{
+    background-color: rgb(218, 84, 60);
+    box-shadow: 0px 0px 3px rgb(218, 84, 60);
+}
+
+.buttons .next{
+    background-color: rgb(0, 175, 0);
+    box-shadow: 0px 0px 3px rgb(0, 175, 0);
+    color: aliceblue;
+}
+
+.buttons .next:active{
+    background-color: rgb(0, 148, 0);
+    box-shadow: 0px 0px 3px rgb(0, 148, 0);
+}
+
+

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Taboo</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body id="body">
+    <header>
+      <h1>Taboo</h1>
+      <div class="nav">
+        <a href="about.html" class="about">About</a>
+        <a href="rules.html" class="rules">Rules</a>
+      </div>
+    </header>
+    
+    <div class="main" id="main">
+        <div class="container" id="con">
+          <div class="buttons">
+            <button id="start" class="start-btn">Play</button>
+            <h1 id="create-team" class="create-team-btn" id="team">Create team</button>
+            <p>Maximun team size 4 people</p>
+            <p>Team name required</p>
+          </div>
+          <div class="box">
+            <div class="team1">
+                <label for="team1">Team 1 name:</label>
+                <input id="team1" type="text" required>
+                <br><br><br>
+                <label for="p1a">Player 1 name:</label>
+                <input id="p1a" type="text">
+
+                <label for="p2a">Player 2 name:</label>
+                <input id="p2a" type="text">
+
+                <label for="p3a">Player 3 name:</label>
+                <input id="p3a" type="text">
+
+                <label for="p4a">Player 4 name:</label>
+                <input id="p4a" type="text">
+            </div>
+            <div class="team2">
+                <label for="team2">Team 2 name:</label>
+                <input id="team2" type="text" required>
+                <br><br><br>
+                <label for="p1b">Player 1 name:</label>
+                <input id="p1b" type="text">
+
+                <label for="p2b">Player 2 name:</label>
+                <input id="p2b" type="text">
+
+                <label for="p3b">Player 3 name:</label>
+                <input id="p3b" type="text">
+
+                <label for="p4b">Player 4 name:</label>
+                <input id="p4b" type="text">
+            </div>
+          </div>
+          <button class="btn" id="create-btn">Create</button>
+        </div>
+    </div>
+
+</body>
+<script>
+  const startBtn = document.getElementById("start");
+  
+startBtn.addEventListener('click', () => {
+    startBtn.classList.remove('fade');
+    void startBtn.offsetWidth;
+    startBtn.classList.add('fade');
+})
+
+createBtn = document.getElementById("create-btn");
+  
+
+createBtn.addEventListener('click', () => {
+      const gameData = {
+        team1: {
+            name: document.getElementById('team1').value,
+            players: [
+            document.getElementById('p1a').value,
+            document.getElementById('p2a').value,
+            document.getElementById('p3a').value,
+            document.getElementById('p4a').value,
+            ],
+        },
+        team2: {
+            name: document.getElementById('team2').value,
+            players: [
+            document.getElementById('p1b').value,
+            document.getElementById('p2b').value,
+            document.getElementById('p3b').value,
+            document.getElementById('p4b').value,
+            ],
+        },
+        };
+        localStorage.setItem('gameData', JSON.stringify(gameData));
+
+
+      if (!gameData.team1.name || !gameData.team2.name) {
+        window.alert("Please enter a name for both teams!");
+      }else{
+        window.alert("Teams succesfully created!")
+        const con = document.getElementById("con");
+        con.classList.remove('fade');
+        void con.offsetWidth;
+        con.classList.add('fade');
+        setTimeout(windowChange,1000);
+}
+
+      
+})
+
+function windowChange(){
+    window.location = "game.html";
+}
+</script>
+
+</html>
