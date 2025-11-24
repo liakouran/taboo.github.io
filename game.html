@@ -25,6 +25,7 @@
         <div class="main">
                 <h2>Timer: <span id="time">60</span></h1>
                 <h3 class="turn" >It's <span id="team-turn">Team 1</span> turn to play!</h3>
+                <h3 class="skips">Skips used: <span id="skips">0</span></h3>
                 <div class="card">
                     <div class="word" id="guess"><h2>???</h2></div>
                     <h3 id="b1">? <span></span></h3>
@@ -65,6 +66,7 @@ const team2 = data.team2.name || "Team 2";
 document.getElementById("team1").textContent=team1;
 document.getElementById("team2").textContent=team2;
 const span = document.getElementById("team-turn");
+const skips_span = document.getElementById("skips");
 
 span.textContent = team1
 
@@ -145,7 +147,7 @@ const words = ["Παράθυρο", "Βαλίτσα","Θάλασσα","Ποδήλ
               "φως","σκοτάδι","σκιά","λάμπα","κερί",
               "ήχος","σιωπή","μουσική","κιθάρα","τύμπανο",
               "χάρτης","πλανήτης","χώρα","πόλη","χωριό",
-              "σχολείο","μαθητής","δασκάλα","τάξη","διάλειμμα"]
+              "σχολείο","μαθητής","δασκάλα","τάξη","διάλειμμα"];
 
 const banned_words = [["τζάμι", "σπίτι", "κουρτίνα", "άνοιγμα", "θέα"],
                       ["ταξίδι","αεροδρόμιο", "ρούχα", "χειραποσκευή", "τροχός"],
@@ -197,7 +199,8 @@ const banned_words = [["τζάμι", "σπίτι", "κουρτίνα", "άνοι
                       ["οδηγός", "στάση", "εισιτήριο", "μεταφορά", "όχημα"],
                       ["ποδόσφαιρο", "στρογγυλή", "ρίχνω", "παιχνίδι", "άλμα"],
                       ["αέρας", "ζέστη", "γυρίζει", "ηλεκτρικό", "δροσιά"],
-                      ["θάλασσα", "παραλία", "καλοκαίρι", "ρούχο", "κολύμπι"],["φως","ζέστη","ουρανός","ακτίνες","καλοκαίρι"],
+                      ["θάλασσα", "παραλία", "καλοκαίρι", "ρούχο", "κολύμπι"],
+                      ["φως","ζέστη","ουρανός","ακτίνες","καλοκαίρι"],
                       ["νύχτα","ουρανός","στρογγυλό","φως","αστέρια"],
                       ["νύχτα","ουρανός","λάμπει","ουράνιο","διάστημα"],
                       ["ουρανός","λευκό","καιρός","βροχή","σκιά"],
@@ -286,14 +289,19 @@ const banned_words = [["τζάμι", "σπίτι", "κουρτίνα", "άνοι
                       ["σχολείο","διάλειμμα","μάθημα","τάξη","εκπαίδευση"],
                       ["μαθητής","τάξη","εκπαίδευση","σχολείο","παιδιά"],
                       ["μαθητές","πίνακας","μάθημα","εκπαίδευση","σχολείο"],
-                      ["σχολείο","αυλή","φαγητό","ξεκούραση","διάσκεψη"]]
+                      ["σχολείο","αυλή","φαγητό","ξεκούραση","διάσκεψη"]];
 
 let used_words = [];
 
+let skips = 0;
 let timeLeft = 59;
 let countdown;
 
+const clickSound = new Audio("button-click.mp3");
+
 function setTimer() {
+  clickSound.currentTime = 0;
+  clickSound.play();
   if(count == 151){
     index = random();
     randomCardPicker(index);
@@ -326,6 +334,7 @@ function setTimer() {
         team_playing = changeTeamTurn(team_turn);
         team_turn++;
         timeLeft = 59;
+        skips = 0;
 
         pass.disabled = true;
         pass.style.opacity = 0.5;
@@ -376,6 +385,8 @@ function changeTeamTurn(team_turn) {
 }
 
 function nextCard(){
+  clickSound.currentTime = 0;
+  clickSound.play();
   if(team_playing == 0){
       pts_t1.textContent = parseInt(pts_t1.textContent) + 1;
   }else{
@@ -386,6 +397,8 @@ function nextCard(){
 }
 
 function Taboo(){
+  clickSound.currentTime = 0;
+  clickSound.play();
   if(team_playing == 0){
       pts_t2.textContent = parseInt(pts_t2.textContent) + 1;
   }else{
@@ -396,8 +409,16 @@ function Taboo(){
 }
 
 function passCard(){
-  index = random();
-  randomCardPicker(index);
+  if(skips < 2){
+    clickSound.currentTime = 0;
+    clickSound.play();
+    index = random();
+    randomCardPicker(index);
+    skips++;  
+    skips_span.textContent = skips;
+  }else{
+    window.alert("No more skips available");
+  }
 }
 
 
@@ -426,5 +447,4 @@ function randomCardPicker(index){
 }
 
 </script>
-
 </html>

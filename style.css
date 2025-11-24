@@ -219,3 +219,24 @@ header .nav .rules:hover{
 .page strong{
     color: tomato;
 }
+
+/*ABOUT PAGE*/
+
+.about{
+    padding: 0px 20px;    
+}
+
+.about .page strong{
+    font-size: 25px;
+}
+
+.about .page p{
+    font-size: 18px;
+    margin-bottom: 50px;
+}
+
+@media (min-width:800px) {
+    *{
+        font-family: cursive;
+    }
+}
